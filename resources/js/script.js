@@ -20,10 +20,9 @@ function addTableWithRating(el){
             id: $el.attr("id")
         },
         success: function (data, textStatus, jqXHR) {
-            
+            console.info(data);
             buildTable($.parseJSON(data) , $el);
-            //console.info(data);
-            console.info($.parseJSON(data).toString()) ;
+            
         },
         error: function (jqXHR, textStatus, errorThrown) {
              console.info("Что-то пошло не так ..." + textStatus);

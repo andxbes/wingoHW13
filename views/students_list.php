@@ -5,13 +5,13 @@ $students = new Students();
 ?>
 <div id="students_list">
     <ul>
-    <?php
-    //print_r($students->getAllNamesOfStudents());
-    
-    foreach ($students->getAllNamesOfStudents() as $student) :?>
-          
-        <li><a id="<?=$student['id']?>" href="#"><?=$student['name']?></a></li>
-    
-    <?php endforeach; ?>
+        <?php
+        //print_r($students->getAllNamesOfStudents());
+
+        foreach ($students->getAllNamesOfStudents() as $student) :?>
+        
+            <li><a id="<?= $student['id'] ?>" href="#"><?= $student['name'] ?></a></li>
+
+        <?php endforeach; ?>
     </ul>
 </div>

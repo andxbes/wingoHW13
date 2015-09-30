@@ -17,13 +17,16 @@ class Students {
         $data = null;
         $pdoData = Students::getPDO()->prepare($query);
         $pdoData->execute();
-        if ($pdoData->errorInfo()[0] == 0) { //если выборка прошла то ....
+        $responseMassage = $pdoData->errorInfo(); //Объект с сообщением  и кодом о проведеной операции 
+        if ($responseMassage[0] == 0) { //если выборка прошла то ....
             $data = $pdoData;
         }
         return $data;
     }
 
     private static function getPDO() {
+        /* @var $pdo type */
+        $pdo = null;
         try {
             $pdo = new PDO('mysql:host=' . DB_HOST . ';dbname=' . DB_NAME, DB_USER, DB_PASS, array(
                 PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
